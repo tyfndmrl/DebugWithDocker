@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  dockercomposedebug.webapi1:
+    image: ${DOCKER_REGISTRY-}dockercomposedebugwebapi1
+    build:
+      context: .
+      dockerfile: src/DockerComposeDebug.WebApi1/Dockerfile
+    # deploy:
+    #   replicas: 4
+    hostname: webapi1
+    ports:
+      - "80"
+#      - "443"
+    networks:
+      - DockerComposeDebug
+
+  dockercomposedebug.webapi2:
+    image: ${DOCKER_REGISTRY-}dockercomposedebugwebapi2
+    build:
+      context: .
+      dockerfile: src/DockerComposeDebug.WebApi2/Dockerfile
+    hostname: webapi2
+    ports:
+      - "80"
+#      - "443"
+    networks:
+      - DockerComposeDebug
+
+  # nginx:
+  #   build: nginx
+  #   container_name: nginx
+
+networks:
+  DockerComposeDebug:
+    name: DockerComposeDebug

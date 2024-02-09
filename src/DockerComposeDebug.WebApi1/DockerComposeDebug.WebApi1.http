@@ -1,0 +1,6 @@
+@DockerComposeDebug.WebApi1_HostAddress = http://localhost:5135
+
+GET {{DockerComposeDebug.WebApi1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
